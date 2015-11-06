@@ -15,10 +15,10 @@ class FeatureTest < ActionDispatch::IntegrationTest
     fill_in 'Password', with: 'keepslotawild'
     click_on 'Login'
 
-    assert page.has_content?('idea 1')
+    assert page.has_content?('keep slota wild')
     assert page.has_content?('welcome')
 
-    click_link 'idea 1'
+    click_link 'keep slota wild'
 
     assert page.has_content?("be sure to keep slota wild")
 

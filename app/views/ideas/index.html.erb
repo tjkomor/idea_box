@@ -1,2 +1,5 @@
 <h2>welcome</h2>
-<h1><%= link_to 'idea 1', idea_path%></h1>
+<% @ideas.each do |idea| %>
+  <%= link_to idea.name, idea_path(idea) %>
+<% end  %>
+  
