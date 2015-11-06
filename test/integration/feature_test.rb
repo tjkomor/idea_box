@@ -9,6 +9,9 @@ class FeatureTest < ActionDispatch::IntegrationTest
     idea = Idea.create(name: 'keep slota wild',
                        description: 'do it')
 
+
+   idea_2 = Idea.create(name: 'idea 2',
+                        description: 'do it')
     visit login_path
 
     fill_in 'Username', with: 'thelegend'
@@ -21,11 +24,10 @@ class FeatureTest < ActionDispatch::IntegrationTest
     click_link 'keep slota wild'
 
     assert page.has_content?("be sure to keep slota wild")
+    click_link 'Delete'
 
-    click_link 'delete'
-
-    assert page.has_content('idea 2')
-    refute page.has_content('idea 1')
+    assert page.has_content?('idea 2')
+    refute page.has_content?('keep slota wild')
   end
 
 end
