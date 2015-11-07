@@ -10,13 +10,15 @@ class FeatureTest < ActionDispatch::IntegrationTest
                        description: 'do it')
 
 
-   idea_2 = Idea.create(name: 'idea 2',
+    idea_2 = Idea.create(name: 'idea 2',
                         description: 'do it')
     visit login_path
 
     fill_in 'Username', with: 'thelegend'
     fill_in 'Password', with: 'keepslotawild'
     click_on 'Login'
+
+    save_and_open_page
 
     assert page.has_content?('keep slota wild')
     assert page.has_content?('welcome')

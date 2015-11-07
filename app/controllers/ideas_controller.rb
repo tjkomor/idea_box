@@ -5,10 +5,9 @@ class IdeasController < ApplicationController
   end
 
   def create
-    byebug
     @idea = Idea.create(idea_params)
     # @idea = Idea.new(idea_params)
-    redirect_to idea_path(@idea)
+    redirect_to user_idea_path(@idea)
   end
 
   def index
@@ -17,7 +16,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea = Idea.delete(params[:id])
-    redirect_to ideas_path
+    redirect_to user_ideas_path
   end
 
   private
