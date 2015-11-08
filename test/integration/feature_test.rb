@@ -18,10 +18,10 @@ class FeatureTest < ActionDispatch::IntegrationTest
     fill_in 'Password', with: 'keepslotawild'
     click_on 'Login'
 
-    save_and_open_page
-
     assert page.has_content?('keep slota wild')
     assert page.has_content?('welcome')
+
+    save_and_open_page
 
     click_link 'keep slota wild'
 
