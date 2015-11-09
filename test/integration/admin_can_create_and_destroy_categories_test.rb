@@ -42,9 +42,8 @@ class AdminCategoriesTest < ActionDispatch::IntegrationTest
     fill_in 'Name', with: "editboywithbroncos"
     click_button "Update Category"
 
-    save_and_open_page
-
     assert page.has_content?("editboywithbroncos")
+    refute page.has_content?('editboy')
   end
 
 end

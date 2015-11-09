@@ -18,6 +18,16 @@ class CategoriesController < ApplicationController
   def edit
   end
 
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to user_path(current_user)
+    else
+      flash[:notice] = "You are missing required attributes"
+      render :edit
+    end
+  end
+
   def destroy
     Category.delete(params[:id])
     redirect_to user_path(current_user)
