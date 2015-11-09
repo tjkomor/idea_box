@@ -1,13 +1,12 @@
 require 'test_helper'
 
-class FeatureTest < ActionDispatch::IntegrationTest
+class CategoriesTest < ActionDispatch::IntegrationTest
 
-  test "user can do all of the things" do
+  test "ideas belong to a category" do
     user = User.create(username: "username",
-                       password: 'password',
-                       role: 0)
+                       password: 'password')
 
-    category = Category.create(name: "School")
+    category = Category.create(name: "category")
 
     idea = Idea.create(name: 'ideaname',
                        description: 'description',
@@ -15,7 +14,7 @@ class FeatureTest < ActionDispatch::IntegrationTest
                        category_id: category.id)
 
 
-    idea_2 = Idea.create(name: 'number2',
+    idea_2 = Idea.create(name: 'ideaname2',
                         description: 'description2',
                         user_id: user.id,
                         category_id: category.id)
@@ -28,19 +27,11 @@ class FeatureTest < ActionDispatch::IntegrationTest
     assert page.has_content?('username')
     assert page.has_content?('Welcome')
 
-
-    click_link 'School'
+    click_link 'category'
 
     assert page.has_content?("ideaname")
+    assert page.has_content?("ideaname2")
 
-    click_link "ideaname"
-
-    assert page.has_content?('description')
-
-    click_link 'Delete'
-
-    assert page.has_content?('number2')
-    refute page.has_content?('ideaname')
   end
 
 end

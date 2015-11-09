@@ -1,0 +1,7 @@
+<h1>Welcome, <%= current_user.username %></h1>
+
+<% @ideas.each do |idea| %>
+  <%= link_to idea.name, user_idea_path(@user.id, idea.id)  %>
+<% end %>
+
+All Categories

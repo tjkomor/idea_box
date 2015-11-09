@@ -1,4 +1,15 @@
-users and list
-<%= link_to "keep slota wild", user_idea_path(user_id: @user.id) %>
-welcome
-be sure to keep slota wild
+<h1>Welcome, <%= current_user.username %></h1>
+
+<%= "Categories"%>
+
+<% @categories.each do |category| %>
+  <%= link_to category.name, category_path(category.id) %>
+  <% if current_admin? %>
+    <%= link_to "Edit Category", edit_admin_category_path(@user.id, category.id ) %>
+    <%= link_to "Delete Category", admin_category_path(@user.id, category.id ), method: :delete %>
+  <% end %>
+<% end %>
+
+<% if current_admin? %>
+  <%= link_to "Add Category", new_admin_category_path(@user.id) %>
+<% end %>
