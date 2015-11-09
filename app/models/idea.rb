@@ -1,4 +1,5 @@
 class Idea < ActiveRecord::Base
-  validates_presence_of :name, :description
+  validates_presence_of :name, :description, :user_id
   belongs_to :user
+  belongs_to :category
 end

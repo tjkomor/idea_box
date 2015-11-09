@@ -39,6 +39,8 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'launchy'
+  gem 'mocha'
+  gem 'spring'
 end
 
 group :development do

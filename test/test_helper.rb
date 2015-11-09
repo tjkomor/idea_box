@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'minitest/pride'
 
+
 class ActiveSupport::TestCase
 
 end

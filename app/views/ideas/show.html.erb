@@ -1,0 +1,4 @@
+<h2>"Ideas"</h2>
+<%= @idea.name %>
+<%= @idea.description %>
+<%= link_to "Delete", user_idea_path(@idea.user_id, @idea), method: :delete %>

@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
 
   def show
-    @idea = Idea.find(params[:id])
+    @idea = Idea.find(params[:user_id])
   end
 
   def create
@@ -16,7 +16,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea = Idea.delete(params[:id])
-    redirect_to user_ideas_path
+    redirect_to category_path
   end
 
   private

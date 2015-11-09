@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :ideas
   end
+
+  resources :admins do
+    resources :categories
+  end
+
+  resources :categories, only: [:index, :show, :create]
 end
